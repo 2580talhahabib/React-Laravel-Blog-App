@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaPencil } from "react-icons/fa6";
-import BlogCard from './Components/BlogCard';
-// import mainImage  from './Main.jpg';
+import {  Route,Routes} from 'react-router-dom';
+import Blogs from './Components/Blogs';
+import Contact from './Components/Contact';
+import CreateBlog from './Components/CreateBlog';
 
 
 function App() {
@@ -15,27 +16,11 @@ function App() {
   </div>
 </div>
 </div>
-<div className="container">
- <div className="row my-4">
-  <div className="col-md-6">
-  <h3>Blog</h3>
-</div>
-  <div className="col-md-6 text-end">
-  <button className=' btn btn-sm btn-dark'>Create</button>
-  </div>
- </div>
-</div>
-<div className="container">
-  <div className="row">
-<BlogCard />
-<BlogCard/>
-<BlogCard/>
-<BlogCard/>
-<BlogCard/>
-<BlogCard/>
-  </div>
-</div>
-
+<Routes>
+  <Route path='/' element={<Blogs />}/>
+  <Route path='/contact' element={<Contact />}/>
+  <Route path='/create' element={<CreateBlog />} />
+</Routes>
     </>
   )
 }
