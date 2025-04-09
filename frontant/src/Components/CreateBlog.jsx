@@ -28,6 +28,11 @@ const CreateBlog = () => {
                 <input type="text" className='form-control'  placeholder='Title'/>
             </div>
             <div className="form-group m-3">
+                <label htmlFor="" className='form-label'>Short Descripation</label>
+             <textarea name="" id="" cols="30" rows="5" className='form-control'></textarea>
+            </div>
+            
+            <div className="form-group m-3">
                 <label htmlFor="" className='form-label'>Descripation</label>
                 <Editor value={html} 
                 containerProps={{ style: { height: '400px' } }}
