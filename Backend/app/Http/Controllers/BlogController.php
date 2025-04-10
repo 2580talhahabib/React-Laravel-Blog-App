@@ -18,15 +18,27 @@ class BlogController extends Controller
      $validator=Validator::make($req->all(),
      [
         'title'=>'required',
-        'auther'=>'required',
+        'Auther'=>'required',
      ]);
+     $path ='';
      if($validator->passes()){
+        if(!empty($req->file('image'))){
+            if($req->hasFile('image')){
+            $image=$req->file('image');
+            $ext=$image->getClientOriginalExtension();
+            $path=time().'.'.$ext;
+            $image->move(public_path('/storage/product/'),$path);
+
+        }
+        }
         
         Blog::create([
             'title'=>$req->title,
             'short_desc'=>$req->short_desc,
             'description'=>$req->description,
+            'image'=>$path,
             'Auther'=>$req->Auther,
+            
         ]);
         return response()->json([
             'status'=>true,
