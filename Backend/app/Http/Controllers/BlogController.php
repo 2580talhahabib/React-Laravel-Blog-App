@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Validator;
 class BlogController extends Controller
 {
     public function index(){
-        
+        $blogs=Blog::latest('id')->get();
+        return response()->json([
+            'status'=>true,
+            'blogs'=>$blogs
+        ]);
     }
     public function create(){
         
