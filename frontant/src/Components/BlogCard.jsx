@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaPencil } from "react-icons/fa6";
-const BlogCard = () => {
+const BlogCard = ({blog}) => {
   return (
     <>
     <div className="col-md-3">
@@ -11,7 +11,7 @@ const BlogCard = () => {
         </div>
         <div className="card-body">
         <div className="card-title">
-         <h5>some quick example text to build</h5> 
+         <h5>{blog.title}</h5> 
         </div>
         <div className="card-text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. This is only for purpose.

@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BlogCard from './BlogCard'
 
 const Blogs = () => {
-  
+  const [blogs,setBlogs]=useState([]);
+  const fetchBlogs=async ()=>{
+  const res= await fetch('http://127.0.0.1:8000/api/index');
+  const result= await res.json();
+  setBlogs(result.blogs);
+  console.log(result);
+  }
+  useEffect(()=>{
+  fetchBlogs();
+  },[])
   return (
 <>
 <div className="container">
@@ -17,12 +26,11 @@ const Blogs = () => {
 </div>
 <div className="container">
   <div className="row">
-<BlogCard />
-<BlogCard/>
-<BlogCard/>
-<BlogCard/>
-<BlogCard/>
-<BlogCard/>
+    {
+     blogs.map((blog)=>{
+ return <BlogCard key={blog.id} blog={blog} />
+     })
+    }
   </div>
 </div>
 
