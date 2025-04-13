@@ -4,6 +4,7 @@ import {  Route,Routes} from 'react-router-dom';
 import Blogs from './Components/Blogs';
 import Contact from './Components/Contact';
 import CreateBlog from './Components/CreateBlog';
+import Blogdetail from './Components/Blogdetail';
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
   <Route path='/' element={<Blogs />}/>
   <Route path='/contact' element={<Contact />}/>
   <Route path='/create' element={<CreateBlog />} />
+  <Route path='/blog/:id' element={<Blogdetail />} />
+  
 </Routes>
     </>
   )

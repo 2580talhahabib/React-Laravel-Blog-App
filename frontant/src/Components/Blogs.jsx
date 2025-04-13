@@ -12,6 +12,7 @@ const Blogs = () => {
   useEffect(()=>{
   fetchBlogs();
   },[])
+
   return (
 <>
 <div className="container">

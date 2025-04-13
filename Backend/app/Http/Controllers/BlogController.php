@@ -58,4 +58,18 @@ class BlogController extends Controller
         ]);
      };
 }
+public function show($id){
+    $blog=Blog::find($id);
+    if($blog == null){
+        return response()->json([
+            'status'=>false,
+            'message'=>'Blog not found',
+        ]);
+    }else{
+        return response()->json([
+            'status'=>true,
+            'data'=>$blog,
+        ]);
+    }
+}
 }
