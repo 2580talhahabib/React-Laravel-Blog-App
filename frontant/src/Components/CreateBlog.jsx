@@ -15,47 +15,7 @@ const navigate=useNavigate();
   function onChange(e) {
     setHtml(e.target.value);
   }
-// useEffect(() => {
 
-//   const form=$("#formsubmit");
-// function handle(e){
-// e.preventDefault();
-// var formdata=new FormData(form[0]);
-// console.log(formdata)
-// formdata.append('description',html)
-// $.ajax({
-//   url:'http://127.0.0.1:8000/api/store',
-//   type:'post',
-//    dataType:'json',
-//    data:formdata,
-//    processData: false, 
-//    contentType: false, 
-//    success:function(response){
-//    if(response.status == false){
-//     $('.is-invalid').removeClass('is-invalid');
-//     $('.invalid-feedback').html('');
-//     let error =response.errors;
-//     if(error){
-//       for (const key in error) {
-//         if (Object.prototype.hasOwnProperty.call(error, key)) {
-//           const element = error[key];
-//             $(`[name=${key}]`).addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(element)
-          
-//         }
-//       }
-//     }
-//    }else{
-//     alert("Data get successfully")
-//    }
-//    }
-  
-//   })
-// }
-
-
-//   form.on('submit',handle)
-//   return () => form.off('submit', handle);
-// }, [html])
 const handleImage = (e) => {
   setImageFile(e.target.files[0]); // Store the selected file in state
 };

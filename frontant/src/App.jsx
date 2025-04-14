@@ -5,8 +5,8 @@ import Blogs from './Components/Blogs';
 import Contact from './Components/Contact';
 import CreateBlog from './Components/CreateBlog';
 import Blogdetail from './Components/Blogdetail';
-import { EditBlog } from './Components/EditBlog';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import EditBlog from './Components/EditBlog';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
   <Route path='/contact' element={<Contact />}/>
   <Route path='/create' element={<CreateBlog />} />
   <Route path='/blog/:id' element={<Blogdetail />} />
-  <Route path='/blog/update/:id' element={<EditBlog />} />
+  <Route path='/blog/update/:id' element={<EditBlog/>} />
   
 </Routes>
 <ToastContainer />
