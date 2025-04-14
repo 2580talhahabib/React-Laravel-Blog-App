@@ -21,7 +21,7 @@ const BlogCard = ({blog}) => {
         </div>
        <div className="d-flex justify-content-between my-2">
         <a href={`/blog/${blog.id}`} className='btn btn-sm btn-dark'>Details</a>
-        <FaPencil className='mt-2'/>
+        <a href={`/blog/update/${blog.id}`}><FaPencil className='mt-2'/></a>
        </div>
         </div>
       </div>

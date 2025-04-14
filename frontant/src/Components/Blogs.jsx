@@ -21,7 +21,7 @@ const Blogs = () => {
   <h3>Blog</h3>
 </div>
   <div className="col-md-6 text-end">
-  <button className=' btn btn-sm btn-dark'>Create</button>
+  <a href='/create' className=' btn btn-sm btn-dark'>Create</a>
   </div>
  </div>
 </div>

@@ -23,6 +23,7 @@ class BlogController extends Controller
      [
         'title'=>'required',
         'Auther'=>'required',
+        'description'=>'nullable'
      ]);
      $path ='';
      if($validator->passes()){
@@ -71,5 +72,52 @@ public function show($id){
             'data'=>$blog,
         ]);
     }
+}
+public function update($id,Request $req){
+    $blog=Blog::find($id);
+    if($blog == null){
+        return response()->json([
+            'status' =>false,
+            'message'=>'Blog did not found'
+        ]);
+    }
+    $validator=Validator::make($req->all(),
+    [
+       'title'=>'required',
+       'Auther'=>'required',
+    ]);
+    $path ='';
+    if($validator->passes()){
+       if(!empty($req->file('image'))){
+           if($req->hasFile('image')){
+           $image=$req->file('image');
+           $ext=$image->getClientOriginalExtension();
+           $path=time().'.'.$ext;
+           $image->move(public_path('/storage/product/'),$path);
+
+       }
+       }
+       
+       $blog->update([
+           'title'=>$req->title,
+           'short_desc'=>$req->short_desc,
+           'description'=>$req->description,
+           'image'=>$path,
+           'Auther'=>$req->Auther,
+           
+       ]);
+       return response()->json([
+           'status'=>true,
+           'message'=>'Blog Updated successfully',
+       ]);
+       
+    }else{
+       
+       return response()->json([
+           'status'=>false,
+           'message'=>'Blog May Have error',
+           'errors'=>$validator->errors(),
+       ]);
+    };
 }
 }
