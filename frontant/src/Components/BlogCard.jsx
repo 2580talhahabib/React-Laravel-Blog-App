@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaPencil } from "react-icons/fa6";
+import { CiShoppingBasket } from "react-icons/ci";
 const BlogCard = ({blog}) => {
   const showimage =(img)=>{
   return (img) ? 'http://127.0.0.1:8000/storage/product/'+img : './Main.jpg';
@@ -21,7 +22,11 @@ const BlogCard = ({blog}) => {
         </div>
        <div className="d-flex justify-content-between my-2">
         <a href={`/blog/${blog.id}`} className='btn btn-sm btn-dark'>Details</a>
+        <div className="flex">
         <a href={`/blog/update/${blog.id}`}><FaPencil className='mt-2'/></a>
+        <a  ><CiShoppingBasket className='m-1' style={{ fontSize:"25px" }} /></a>
+        </div>
+   
        </div>
         </div>
       </div>

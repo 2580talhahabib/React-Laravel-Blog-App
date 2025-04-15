@@ -120,4 +120,10 @@ public function update($id,Request $req){
        ]);
     };
 }
+public function Destroy($id){
+    if($id == null){
+        
+        
+    }
+}
 }
