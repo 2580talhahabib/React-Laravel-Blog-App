@@ -23,3 +23,4 @@ Route::post('/store',[BlogController::class,'store']);
 Route::get('/index',[BlogController::class,'index']);
 Route::get('/show/{id}',[BlogController::class,'show']);
 Route::post('/update/{id}',[BlogController::class,'update']);
+Route::delete('/Destroy/{id}',[BlogController::class,'Destroy']);

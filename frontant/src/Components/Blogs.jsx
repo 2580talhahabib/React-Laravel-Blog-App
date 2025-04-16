@@ -9,6 +9,8 @@ const Blogs = () => {
   setBlogs(result.blogs);
   console.log(result);
   }
+
+
   useEffect(()=>{
   fetchBlogs();
   },[])
@@ -29,7 +31,7 @@ const Blogs = () => {
   <div className="row">
     {
      blogs.map((blog)=>{
- return <BlogCard key={blog.id} blog={blog} />
+ return <BlogCard key={blog.id} setBlogs={setBlogs} blogs={blogs} blog={blog} />
      })
     }
   </div>

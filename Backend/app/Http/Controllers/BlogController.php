@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
@@ -121,9 +122,25 @@ public function update($id,Request $req){
     };
 }
 public function Destroy($id){
-    if($id == null){
-        
-        
+  $delete=Blog::find($id);
+  if($delete == null){
+    return response()->json([
+        'status'=>false,
+        'message'=>'Blog did not found'
+    ]);
+  }
+  if($delete){
+    $filepath = public_path('storage/product/' . $delete->image);
+    // dd($filepath);
+
+    if($delete->image && file_exists($filepath)){
+        unlink($filepath);
     }
+    $delete->delete();
+    return response()->json([
+        'status'=>true,
+        'message'=>'Image deleted successfully'
+    ]);
+}
 }
 }
