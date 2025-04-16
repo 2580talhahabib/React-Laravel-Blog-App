@@ -9,8 +9,14 @@ use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
-    public function index(){
-        $blogs=Blog::latest('id')->get();
+    public function index(Request $req){
+        $blogs=Blog::latest('id');
+
+        if(!empty($req->keyword)){
+            $blogs=$blogs->where('title','like','%'.$req->keyword.'%');
+        }
+       $blogs= $blogs->get();
+
         return response()->json([
             'status'=>true,
             'blogs'=>$blogs
